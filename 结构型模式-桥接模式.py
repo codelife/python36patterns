@@ -14,12 +14,12 @@ from monkey_print2 import print
 
 class A:
     def run(self, name):
-        print("my name is :{}".format(name))
+        print(f"my name is :{name}")
 
 
 class B:
     def run(self, name):
-        print("我的名字是：{}".format(name))
+        print(f"我的名字是：{name}")
 
 
 class Bridge:

@@ -75,11 +75,10 @@ class FunctionResultCacher:
                 key = cls._make_arguments_to_key(args, kwargs)
                 if (fun, key) in cls.func_result_dict and time.time() - cls.func_result_dict[(fun, key)][1] < cache_time:
                     return cls.func_result_dict[(fun, key)][0]
-                else:
-                    print('函数 [{}] 此次不能使用缓存'.format(fun.__name__))
-                    result = fun(*args, **kwargs)
-                    cls.func_result_dict[(fun, key)] = (result, time.time())
-                    return result
+                print('函数 [{}] 此次不能使用缓存'.format(fun.__name__))
+                result = fun(*args, **kwargs)
+                cls.func_result_dict[(fun, key)] = (result, time.time())
+                return result
 
             return __cached_function_result_for_a_time
 

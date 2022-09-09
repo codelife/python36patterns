@@ -33,10 +33,7 @@ class JMSService(AbstractBusinessService):
 
 
 def getBusinessService(serviceType: str):
-    if serviceType.upper() == 'EJB':
-        return EJBService()
-    else:
-        return JMSService()
+    return EJBService() if serviceType.upper() == 'EJB' else JMSService()
 
 
 class BusinessDelegate:

@@ -24,7 +24,7 @@ class Widget:
         self.parent = parent
 
     def handle(self, event):
-        handler = 'handle_{}'.format(event)
+        handler = f'handle_{event}'
         if hasattr(self, handler):
             method = getattr(self, handler)
             method(event)
@@ -37,22 +37,22 @@ class Widget:
 class MainWindow(Widget):
 
     def handle_close(self, event):
-        print('MainWindow: {}'.format(event))
+        print(f'MainWindow: {event}')
 
     def handle_default(self, event):
-        print('MainWindow Default: {}'.format(event))
+        print(f'MainWindow Default: {event}')
 
 
 class SendDialog(Widget):
 
     def handle_paint(self, event):
-        print('SendDialog: {}'.format(event))
+        print(f'SendDialog: {event}')
 
 
 class MsgText(Widget):
 
     def handle_down(self, event):
-        print('MsgText: {}'.format(event))
+        print(f'MsgText: {event}')
 
 
 def main():
@@ -62,11 +62,11 @@ def main():
 
     for e in ('down', 'paint', 'unhandled', 'close'):
         evt = Event(e)
-        print('\nSending event -{}- to MainWindow'.format(evt))
+        print(f'\nSending event -{evt}- to MainWindow')
         mw.handle(evt)
-        print('Sending event -{}- to SendDialog'.format(evt))
+        print(f'Sending event -{evt}- to SendDialog')
         sd.handle(evt)
-        print('Sending event -{}- to MsgText'.format(evt))
+        print(f'Sending event -{evt}- to MsgText')
         msg.handle(evt)
 
 if __name__ == '__main__':

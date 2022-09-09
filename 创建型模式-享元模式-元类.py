@@ -5,9 +5,9 @@ from monkey_print2 import print
 
 
 class FlyweightMetaClass(type):
-    def __init__(cls, name, bases, dict):
-        super(FlyweightMetaClass, cls).__init__(name, bases, dict)
-        cls._instance_map = {}
+    def __init__(self, name, bases, dict):
+        super(FlyweightMetaClass, self).__init__(name, bases, dict)
+        self._instance_map = {}
 
     @staticmethod
     def _make_arguments_to_key(args, kwds):

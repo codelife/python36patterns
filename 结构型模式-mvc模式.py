@@ -29,10 +29,10 @@ class QuoteModel:
 class QuoteTerminalView:
 
     def show(self, quote):
-        print('And the quote is: "{}"'.format(quote))
+        print(f'And the quote is: "{quote}"')
 
     def error(self, msg):
-        print('Error: {}'.format(msg))
+        print(f'Error: {msg}')
 
     def select_quote(self):
         return input('Which quote number would you like to see?')
@@ -51,7 +51,7 @@ class QuoteTerminalController:
             try:
                 n = int(n)
             except ValueError as err:
-                self.view.error("Incorrect index '{}'".format(n))
+                self.view.error(f"Incorrect index '{n}'")
             else:
                 valid_input = True
         quote = self.model.get_quote(n)

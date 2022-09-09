@@ -40,13 +40,13 @@ def main():
     sample_queue = Queue()
     sample_queue.put('yam')
     with QueueObject(sample_queue) as obj:
-        print('Inside with: {}'.format(obj))
-    print('Outside with: {}'.format(sample_queue.get()))
+        print(f'Inside with: {obj}')
+    print(f'Outside with: {sample_queue.get()}')
 
     sample_queue.put('sam')
     queue_object = QueueObject(sample_queue, True)
-    print('内部 func: {}'.format(queue_object.object))
-    print('外部 func: {}'.format(sample_queue.get()))
+    print(f'内部 func: {queue_object.object}')
+    print(f'外部 func: {sample_queue.get()}')
 
     if not sample_queue.empty():
         print(sample_queue.get())

@@ -46,7 +46,7 @@ class FrontController:
         return True
 
     def track_request(self, request):
-        print("被请求页面: " + request)
+        print(f"被请求页面: {request}")
 
     def dispatch_request(self, request):
         self.track_request(request)

@@ -30,18 +30,17 @@ class Expression():
     def interpret(self, context):
         if len(context.play_text) == 0:
             return
-        else:
-            play_segs = context.play_text.split(" ")
-            for play_seg in play_segs:
-                pos = 0
-                for ele in play_seg:
-                    if ele.isalpha():
-                        pos += 1
-                        continue
-                    break
-                play_chord = play_seg[0:pos]
-                play_value = play_seg[pos:]
-                self.execute(play_chord, play_value)
+        play_segs = context.play_text.split(" ")
+        for play_seg in play_segs:
+            pos = 0
+            for ele in play_seg:
+                if ele.isalpha():
+                    pos += 1
+                    continue
+                break
+            play_chord = play_seg[:pos]
+            play_value = play_seg[pos:]
+            self.execute(play_chord, play_value)
 
     def execute(self, play_key, play_value):
         pass
@@ -49,7 +48,7 @@ class Expression():
 
 class NormGuitar(Expression):
     def execute(self, key, value):
-        print("Normal Guitar Playing--Chord:%s Play Tune:%s" % (key, value))
+        print(f"Normal Guitar Playing--Chord:{key} Play Tune:{value}")
 
 
 if __name__ == "__main__":
