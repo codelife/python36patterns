@@ -102,9 +102,9 @@ class Accounting:
         self.Duty = '计算报表'
 
     def visit(self, year_data):
-        print('我现在分析的是{}年的数据'.format(year_data.year))
-        print('我的身份是:{}，职责：'.format(self.id, self.Duty))
-        print('本年度纯利润:{}'.format(year_data.salesvolume - year_data.cost))
+        print(f'我现在分析的是{year_data.year}年的数据')
+        print(f'我的身份是:{self.id}，职责：')
+        print(f'本年度纯利润:{year_data.salesvolume - year_data.cost}')
         print('---------------------------------------')
 
 
@@ -115,13 +115,13 @@ class Audit:
         self.Duty = '分析业绩'
 
     def visit(self, year_data):  # 要把具体哪一年的数据传给分析师，让分析师去分析
-        print('我现在分析的是{}年的数据'.format(year_data.year))
-        print('我的身份是:{}，职责：'.format(self.id, self.Duty))
+        print(f'我现在分析的是{year_data.year}年的数据')
+        print(f'我的身份是:{self.id}，职责：')
         if year_data.salesvolume - year_data.cost > year_data.history_salesvolume - year_data.history_cost:
             msg = '较同期上涨'
         else:
             msg = '较同期下跌'
-        print('本年度公司业绩:{}'.format(msg))
+        print(f'本年度公司业绩:{msg}')
         print('---------------------------------')
 
 
@@ -132,13 +132,13 @@ class Advisor:
         self.Duty = '制定明年策略'
 
     def visit(self, year_data):
-        print('我现在分析的是{}年的数据'.format(year_data.year))
-        print('我的身份是:{}，职责：'.format(self.id, self.Duty))
+        print(f'我现在分析的是{year_data.year}年的数据')
+        print(f'我的身份是:{self.id}，职责：')
         if year_data.salesvolume > year_data.history_salesvolume:
             msg = '行业上涨，扩大规模'
         else:
             msg = '行业下跌，减少规模'
-        print('本年度公司业绩:{}'.format(msg))
+        print(f'本年度公司业绩:{msg}')
         print('------------------------------')
 
 

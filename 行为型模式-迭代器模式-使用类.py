@@ -13,9 +13,8 @@ class AccountIterator():
     def __next__(self):
         if self.index >= len(self.accounts):
             raise StopIteration("到头了...")
-        else:
-            self.index += 1
-            return self.accounts[self.index - 1]
+        self.index += 1
+        return self.accounts[self.index - 1]
 
 
 if __name__ == '__main__':

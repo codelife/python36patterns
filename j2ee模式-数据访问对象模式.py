@@ -64,13 +64,21 @@ class StudentDao(AbstractStudentDao):
         # print(student.get_roll_no())
         # print(student.get_name())
         self.students[student.get_roll_no()].set_name(student.get_name())
-        print("Student: RollNo " + str(student.get_roll_no())
-              + ", updated in the database")
+        print(
+            (
+                f"Student: RollNo {str(student.get_roll_no())}"
+                + ", updated in the database"
+            )
+        )
 
     def delete_student(self, student: Student):
         self.students.pop(student.get_roll_no())
-        print("Student: Roll No " + str(student.get_roll_no())
-              + ", deleted from database")
+        print(
+            (
+                f"Student: Roll No {str(student.get_roll_no())}"
+                + ", deleted from database"
+            )
+        )
 
 
 if __name__ == '__main__':
@@ -79,7 +87,10 @@ if __name__ == '__main__':
 
     # // 输出所有的学生
     for student in student_dao.get_all_students():
-        print("Student: [RollNo : " + str(student.get_roll_no()) + ", Name : " + student.get_name() + " ]")
+        print(
+            f"Student: [RollNo : {str(student.get_roll_no())}, Name : {student.get_name()} ]"
+        )
+
 
     # // 更新学生
     student = student_dao.get_all_students()[0]

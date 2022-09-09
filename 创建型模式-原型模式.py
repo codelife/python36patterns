@@ -46,7 +46,7 @@ class Book:
         mylist = []
         ordered = OrderedDict(sorted(self.__dict__.items()))
         for i in ordered.keys():
-            mylist.append('{}: {}'.format(i, ordered[i]))
+            mylist.append(f'{i}: {ordered[i]}')
             if i == 'price':
                 mylist.append('$')
             mylist.append('\n')
@@ -55,7 +55,7 @@ class Book:
 
 class Prototype:
     def __init__(self):
-        self.objects = dict()  # 初始化一个原型列表
+        self.objects = {}
 
     def register(self, identifier, obj):
         # 在原型列表中注册原型对象
@@ -69,7 +69,7 @@ class Prototype:
         # 根据 identifier 在原型列表中查找原型对象并克隆
         found = self.objects.get(identifier)
         if not found:
-            raise ValueError('Incorrect object identifier: {}'.format(identifier))
+            raise ValueError(f'Incorrect object identifier: {identifier}')
         obj = copy.deepcopy(found)
         obj.__dict__.update(attr)  # 用新的属性值替换原型对象中的对应属性
         return obj
@@ -89,4 +89,4 @@ if __name__ == '__main__':
 
     for i in (b1, b2):
         print(i)
-    print("ID b1 : {} != ID b2 : {}".format(id(b1), id(b2)))
+    print(f"ID b1 : {id(b1)} != ID b2 : {id(b2)}")

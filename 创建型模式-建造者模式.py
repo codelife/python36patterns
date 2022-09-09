@@ -102,17 +102,14 @@ class Client(object):
         if build_type == "House":
             director = Director()
             builder = HouseBuilder()
-            director.builder = builder
-            director.construct_building()
-            building = director.get_building()
-            print(building)
         else:
             director = Director()
             builder = FlatBuilder()
-            director.builder = builder
-            director.construct_building()
-            building = director.get_building()
-            print(building)
+
+        director.builder = builder
+        director.construct_building()
+        building = director.get_building()
+        print(building)
 
 
 if __name__ == "__main__":

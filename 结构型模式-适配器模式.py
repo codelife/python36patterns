@@ -15,7 +15,7 @@ class Dog:
         self.name = name
 
     def wangwang(self):
-        print('my name is' + self.name + '。。。汪汪汪。。。')
+        print(f'my name is{self.name}。。。汪汪汪。。。')
 
     def dog_run(self):
         print(f'{self.name} is running')
@@ -26,7 +26,7 @@ class Cat:
         self.name = name
 
     def miaomiao(self):
-        print('my name is' + self.name + '。。。喵喵喵。。。')
+        print(f'my name is{self.name}。。。喵喵喵。。。')
 
     def cat_run(self):
         print(f'{self.name} is running')
@@ -37,7 +37,7 @@ class Sheep:
         self.name = name
 
     def miemie(self):
-        print('my name is' + self.name + '。。。咩咩。。。')
+        print(f'my name is{self.name}。。。咩咩。。。')
 
     def sheet_run(self):
         print(f'{self.name} is running')
@@ -56,13 +56,14 @@ class Adapter:
 
 
 def main():
-    animals = []
     dog = Dog('旺财')
     cat = Cat('大脸猫')
     sheep = Sheep('喜洋洋')
-    animals.append(Adapter({'speak': dog.wangwang, 'run': dog.dog_run}))
-    animals.append(Adapter({'speak': cat.miaomiao, 'run': cat.cat_run}))
-    animals.append(Adapter({'speak': sheep.miemie, 'run': sheep.sheet_run}))
+    animals = [
+        Adapter({'speak': dog.wangwang, 'run': dog.dog_run}),
+        Adapter({'speak': cat.miaomiao, 'run': cat.cat_run}),
+        Adapter({'speak': sheep.miemie, 'run': sheep.sheet_run}),
+    ]
 
     for a in animals:
         a.speak()

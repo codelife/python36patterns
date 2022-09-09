@@ -24,11 +24,11 @@ class SensitiveInfo:
         self.users = ['nick', 'tom', 'ben', 'mike']
 
     def read(self):
-        print('There are {} users: {}'.format(len(self.users), ' '.join(self.users)))
+        print(f"There are {len(self.users)} users: {' '.join(self.users)}")
 
     def add(self, user):
         self.users.append(user)
-        print('Added user {}'.format(user))
+        print(f'Added user {user}')
 
 
 class Info:
@@ -60,7 +60,7 @@ def main():
         elif key == '3':
             exit()
         else:
-            print('unknown option: {}'.format(key))
+            print(f'unknown option: {key}')
 
 if __name__ == '__main__':
     main()
